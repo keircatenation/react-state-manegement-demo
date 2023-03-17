@@ -114,6 +114,7 @@ main input {
   padding:.75rem;
   background-color: transparent;
   border: none;
+  width:75%;
 }
 main input:focus{
   border: 1px solid var(--color);

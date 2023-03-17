@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { MyContext } from "../App";
+
 export default function ContactItem(props) {
-    const { name, selected, setSelectedContact, index } = props;
+    const { setSelectedContact } = useContext(MyContext);
+    const { index, name, selected } = props;
     console.log('contact item rendered', name, new Date())
 
     return (

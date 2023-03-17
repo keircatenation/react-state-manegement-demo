@@ -1,25 +1,29 @@
+import { useContext } from "react";
+import { MyContext } from "../App";
+
 export default function DisplayContact(props) {
-    const { contact, setContacts, index, contacts, setSelectedContact } = props;
+    const { setContacts, selectedContact, contacts, setSelectedContact } = useContext(MyContext);
+    const contact = contacts[selectedContact];
     const updateName = e => {
         let newContacts = [...contacts];
-        newContacts[index].name = e.target.value;
+        newContacts[selectedContact].name = e.target.value;
         setContacts( newContacts)
     }
     const updateEmail = e => {
         let newContacts = [...contacts];
-        newContacts[index].email = e.target.value;
+        newContacts[selectedContact].email = e.target.value;
         setContacts( newContacts)
     }
     const updateBirthday = e => {
         let newContacts = [...contacts];
-        newContacts[index].birthday = e.target.value;
+        newContacts[selectedContact].birthday = e.target.value;
         setContacts( newContacts)
     }
     const deleteContact = () => {
-        let newContacts = [...contacts.slice(0, index), ...contacts.slice(index+1)]
+        let newContacts = [...contacts.slice(0, selectedContact), ...contacts.slice(selectedContact+1)]
         if ( newContacts.length > 0 ) {
-            if ( index - 1 >= 0 ) {
-                setSelectedContact( index-1 )
+            if ( selectedContact - 1 >= 0 ) {
+                setSelectedContact( selectedContact-1 )
             }
         } else {
             newContacts.push( {name: '', email: '', birthday: ''} )

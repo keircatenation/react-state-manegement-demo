@@ -1,6 +1,9 @@
 import ContactItem from './ContactItem.jsx'
+import { useContext } from 'react';
+import { MyContext } from "../App";
+
 export default function ContactList(props) {
-    const { contacts, selectedContact, setSelectedContact } = props;
+    const { contacts, selectedContact } = useContext(MyContext);
     console.log('contact list rendered', new Date())
 
     return (
@@ -8,7 +11,7 @@ export default function ContactList(props) {
         {
             contacts.map( (contact, index) => {
                 return (
-                    <ContactItem key={contact.name + index} name={contact.name} setSelectedContact={setSelectedContact} selected={ index == selectedContact ? true : false } index={index} />
+                    <ContactItem key={contact.name + index} name={contact.name} selected={ index == selectedContact ? true : false } index={index} />
                 )
             } )
         }
