@@ -4,8 +4,10 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --color: rgba(255, 255, 255, 0.87);
+  --background-color: #242424;
+  color: var(--color);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,10 +27,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -57,13 +55,71 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --color: #213547;
+    --background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+#root {
+  display: grid;
+  grid-template-areas: 'header header'
+                        'aside main'
+                        'footer footer';
+  grid-template-columns: 30vw 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+header {
+  grid-area: header;
+  border-bottom: 1px solid var(--color);
+  padding:1rem;
+}
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+aside {
+  grid-area: aside;
+  border-right: 1px solid var(--color);
+  padding:1rem;
+}
+aside h2 {
+  margin:0;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  margin-top:1rem;
+}
+.contact-list button {
+  border-radius: 0;
+  text-align: left;
+}
+.contact-list button.selected {
+  color: var(--background-color);
+  background-color: var(--color);
+}
+main {
+  grid-area: main;
+  padding:1rem;
+}
+main form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+}
+main input {
+  display: block;
+  font-size: 1rem;
+  padding:.75rem;
+  background-color: transparent;
+  border: none;
+}
+main input:focus{
+  border: 1px solid var(--color);
+}
+footer {
+  grid-area: footer;
+  border-top: 1px solid var(--color);
+  padding: 1rem;
 }

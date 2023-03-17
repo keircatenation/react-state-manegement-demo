@@ -1,34 +1,38 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import ContactList from './components/ContactList.jsx'
+import DisplayContact from './components/DisplayContact.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [contacts, setContacts] = useState([{
+    name: 'AnnMarie Jones',
+    email: 'annmariej@gmail.com',
+    birthday: "September 9, 1988"
+  }])
+  const [selectedContact, setSelectedContact] = useState(0)
+
+  const createNewContact = () => {
+    setContacts( [...contacts, { name: '', email: '', birthday: '' }] )
+    setSelectedContact( contacts.length )
+  }
+  console.log('app rendered!', new Date())
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <>
+      <header>
+        <h1>Address Book</h1>
+      </header>
+      <aside>
+        <h2>Contacts</h2>
+        <ContactList contacts={contacts} setSelectedContact={setSelectedContact} selectedContact={selectedContact}/>
+        <button onClick={createNewContact}>Add Contact</button>
+      </aside>
+      <main>
+        <DisplayContact contact={ contacts[selectedContact] } index={selectedContact} setContacts={setContacts} contacts={contacts} setSelectedContact={setSelectedContact} />
+      </main>
+      <footer>
+        footer stuff
+      </footer>
+    </>
   )
 }
 
