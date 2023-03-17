@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ContactList from './components/ContactList.jsx'
 import DisplayContact from './components/DisplayContact.jsx'
+import UserAvatar from './components/UserAvatar.jsx'
 
 function App() {
   const [contacts, setContacts] = useState([{
@@ -20,6 +21,7 @@ function App() {
     <>
       <header>
         <h1>Address Book</h1>
+        <UserAvatar/>
       </header>
       <aside>
         <h2>Contacts</h2>
