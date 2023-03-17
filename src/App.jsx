@@ -16,7 +16,7 @@ function App() {
     setContacts( [...contacts, { name: '', email: '', birthday: '' }] )
     setSelectedContact( contacts.length )
   }
-  console.log('app rendered!', new Date())
+  console.log('app rendered!', new Date().toLocaleTimeString())
   // console.log(MyContext)
 
   return (

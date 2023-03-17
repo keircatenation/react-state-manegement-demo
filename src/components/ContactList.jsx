@@ -4,7 +4,7 @@ import { MyContext } from "../App";
 
 export default function ContactList(props) {
     const { contacts, selectedContact } = useContext(MyContext);
-    console.log('contact list rendered', new Date())
+    console.log('contact list rendered', new Date().toLocaleTimeString())
 
     return (
         <div className='contact-list'>

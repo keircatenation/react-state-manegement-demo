@@ -31,7 +31,7 @@ export default function DisplayContact(props) {
         }
         setContacts(newContacts)
     }
-    console.log( 'display content rendered', new Date() )
+    console.log( 'display content rendered', new Date().toLocaleTimeString() )
     return (
         <>
             <h2>Contact</h2>
