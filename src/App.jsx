@@ -1,6 +1,7 @@
 import ContactList from './components/ContactList.jsx'
 import DisplayContact from './components/DisplayContact.jsx'
 import { useContactStore } from './contactstore.js'
+import UserAvatar from './components/UserAvatar.jsx'
 
 function App() {
   const addContact = useContactStore( state => state.addContact )
@@ -13,6 +14,7 @@ function App() {
     <>
       <header>
         <h1>Address Book</h1>
+        <UserAvatar/>
       </header>
       <aside>
         <h2>Contacts</h2>
