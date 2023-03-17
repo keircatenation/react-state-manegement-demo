@@ -1,7 +1,7 @@
 import ContactItem from './ContactItem.jsx'
 export default function ContactList(props) {
     const { contacts, selectedContact, setSelectedContact } = props;
-    console.log('contact list rendered', new Date())
+    console.log('contact list rendered', new Date().toLocaleTimeString())
 
     return (
         <div className='contact-list'>
