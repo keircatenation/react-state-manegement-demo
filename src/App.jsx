@@ -1,6 +1,7 @@
 import { useState, createContext, useContext } from 'react'
 import ContactList from './components/ContactList.jsx'
 import DisplayContact from './components/DisplayContact.jsx'
+import UserAvatar from './components/UserAvatar.jsx';
 
 export const MyContext = createContext( "context!" );
 
@@ -23,6 +24,7 @@ function App() {
     <>
       <header>
         <h1>Address Book</h1>
+        <UserAvatar/>
       </header>
       <MyContext.Provider value={ {contacts, setContacts, selectedContact, setSelectedContact} }>
         <aside>
