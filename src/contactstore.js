@@ -36,7 +36,15 @@ export const useContactStore = create( set => ( {
     setContacts: newContacts => {
         set( () => ({ contacts: newContacts }) )
     },
+    
     setSelectedContact: index => {
         set( () => ( {selectedContact: index} ) )
     }
+} ) )
+
+export const useAuthStore = create( set => ( {
+    loggedin: false,
+    setLoggedin: (bool) => {
+        set( () => ( { loggedin: bool } ) )
+    },
 } ) )
