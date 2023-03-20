@@ -10,6 +10,7 @@ function App() {
     birthday: "September 9, 1988"
   }])
   const [selectedContact, setSelectedContact] = useState(0)
+  const [loggedin, setLoggedin] = useState(false)
 
   const createNewContact = () => {
     setContacts( [...contacts, { name: '', email: '', birthday: '' }] )
@@ -21,7 +22,7 @@ function App() {
     <>
       <header>
         <h1>Address Book</h1>
-        <UserAvatar/>
+        <UserAvatar loggedin={loggedin} setLoggedin={setLoggedin}/>
       </header>
       <aside>
         <h2>Contacts</h2>
